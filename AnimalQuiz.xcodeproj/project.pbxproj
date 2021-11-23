@@ -15,6 +15,8 @@
 		6851BE62274CD06C00BA9B1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6851BE60274CD06C00BA9B1A /* Main.storyboard */; };
 		6851BE64274CD06D00BA9B1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6851BE63274CD06D00BA9B1A /* Assets.xcassets */; };
 		6851BE67274CD06D00BA9B1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6851BE65274CD06D00BA9B1A /* LaunchScreen.storyboard */; };
+		68AA0D99274D86C300BBE714 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA0D98274D86C300BBE714 /* Question.swift */; };
+		68AA0D9B274D86CC00BBE714 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA0D9A274D86CC00BBE714 /* Answer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		6851BE63274CD06D00BA9B1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6851BE66274CD06D00BA9B1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6851BE68274CD06D00BA9B1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68AA0D98274D86C300BBE714 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		68AA0D9A274D86CC00BBE714 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 		6851BE72274CD18E00BA9B1A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				68AA0D98274D86C300BBE714 /* Question.swift */,
+				68AA0D9A274D86CC00BBE714 /* Answer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -187,6 +193,8 @@
 				6803F375274D551600FC12E0 /* ResultViewController.swift in Sources */,
 				6851BE5F274CD06C00BA9B1A /* ViewController.swift in Sources */,
 				6851BE5B274CD06C00BA9B1A /* AppDelegate.swift in Sources */,
+				68AA0D9B274D86CC00BBE714 /* Answer.swift in Sources */,
+				68AA0D99274D86C300BBE714 /* Question.swift in Sources */,
 				6803F373274D54FE00FC12E0 /* QuestionViewController.swift in Sources */,
 				6851BE5D274CD06C00BA9B1A /* SceneDelegate.swift in Sources */,
 			);
