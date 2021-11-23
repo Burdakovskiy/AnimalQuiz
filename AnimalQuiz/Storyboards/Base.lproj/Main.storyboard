@@ -35,7 +35,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Start quiz"/>
                                         <connections>
-                                            <segue destination="ZH7-vr-Rzl" kind="presentation" modalPresentationStyle="fullScreen" id="cUG-Uc-gdg"/>
+                                            <segue destination="jAt-3a-YAS" kind="presentation" modalPresentationStyle="fullScreen" id="cUG-Uc-gdg"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -53,20 +53,106 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="67.633928571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Вопрос №-->
         <scene sceneID="Zky-EH-bIv">
             <objects>
-                <viewController id="ZH7-vr-Rzl" sceneMemberID="viewController">
+                <viewController id="ZH7-vr-Rzl" customClass="QuestionViewController" customModule="AnimalQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6nW-9b-aWG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="J8R-X7-E5O">
+                                <rect key="frame" x="16" y="298" width="382" height="300"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8II-4Z-Rvt">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="61.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GC-BO-Pwg">
+                                        <rect key="frame" x="0.0" y="79.5" width="382" height="61.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYq-ty-D2d">
+                                        <rect key="frame" x="0.0" y="159" width="382" height="61.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaf-aW-a54">
+                                        <rect key="frame" x="0.0" y="238.5" width="382" height="61.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uaf-aW-a54" firstAttribute="height" secondItem="8II-4Z-Rvt" secondAttribute="height" id="2NW-IB-y2z"/>
+                                    <constraint firstItem="6GC-BO-Pwg" firstAttribute="height" secondItem="8II-4Z-Rvt" secondAttribute="height" id="KzQ-nx-hbv"/>
+                                    <constraint firstAttribute="height" constant="300" id="XGJ-iJ-COH"/>
+                                    <constraint firstItem="yYq-ty-D2d" firstAttribute="height" secondItem="8II-4Z-Rvt" secondAttribute="height" id="vJk-1B-UhY"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3Vx-CL-ass"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="J8R-X7-E5O" firstAttribute="leading" secondItem="3Vx-CL-ass" secondAttribute="leading" constant="16" id="hTM-CU-9bb"/>
+                            <constraint firstItem="3Vx-CL-ass" firstAttribute="trailing" secondItem="J8R-X7-E5O" secondAttribute="trailing" constant="16" id="o0I-sq-V8c"/>
+                            <constraint firstItem="J8R-X7-E5O" firstAttribute="centerY" secondItem="6nW-9b-aWG" secondAttribute="centerY" id="tGJ-un-a5L"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Вопрос №" id="fg0-hP-wsK"/>
+                    <connections>
+                        <segue destination="vf2-YT-hyB" kind="show" id="8fc-1v-eWb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nm6-OL-95J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="891" y="68"/>
+            <point key="canvasLocation" x="1800.0000000000002" y="67.633928571428569"/>
+        </scene>
+        <!--Result View Controller-->
+        <scene sceneID="rVF-ec-NWF">
+            <objects>
+                <viewController id="vf2-YT-hyB" customClass="ResultViewController" customModule="AnimalQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0Ud-7O-7gw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vhc-KI-qJz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="z2i-6b-DdN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="se4-zf-q8U"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GBT-QO-tK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2645" y="68"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EsR-4Z-FU8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jAt-3a-YAS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="f9o-Rl-ogj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZH7-vr-Rzl" kind="relationship" relationship="rootViewController" id="xks-DO-gvv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vme-lg-THX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889.85507246376824" y="67.633928571428569"/>
         </scene>
     </scenes>
     <resources>
