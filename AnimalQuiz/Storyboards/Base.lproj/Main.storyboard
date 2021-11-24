@@ -232,14 +232,26 @@
                             <constraint firstItem="3Vx-CL-ass" firstAttribute="trailing" secondItem="J8R-X7-E5O" secondAttribute="trailing" constant="16" id="o0I-sq-V8c"/>
                             <constraint firstItem="J8R-X7-E5O" firstAttribute="centerY" secondItem="6nW-9b-aWG" secondAttribute="centerY" id="tGJ-un-a5L"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="J8R-X7-E5O"/>
-                                <exclude reference="naM-9y-Kjx"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Вопрос №" id="fg0-hP-wsK"/>
+                    <connections>
+                        <outlet property="multipleStack" destination="naM-9y-Kjx" id="OJS-YL-LMo"/>
+                        <outlet property="progressLabel" destination="gWI-sl-cU1" id="kYG-zO-frh"/>
+                        <outlet property="questionLabel" destination="8XS-1z-ZE3" id="aKk-z5-NYd"/>
+                        <outlet property="rangeStack" destination="s4w-15-Jz8" id="c0W-dH-fHB"/>
+                        <outlet property="rangedSlider" destination="lhh-PO-UxU" id="DqL-lp-M6c"/>
+                        <outlet property="singleStack" destination="J8R-X7-E5O" id="ITQ-Ov-DXA"/>
+                        <outletCollection property="singleButtons" destination="8II-4Z-Rvt" collectionClass="NSMutableArray" id="tDM-BF-Goa"/>
+                        <outletCollection property="singleButtons" destination="6GC-BO-Pwg" collectionClass="NSMutableArray" id="afs-jR-gFS"/>
+                        <outletCollection property="singleButtons" destination="yYq-ty-D2d" collectionClass="NSMutableArray" id="L3s-dV-iSV"/>
+                        <outletCollection property="singleButtons" destination="uaf-aW-a54" collectionClass="NSMutableArray" id="Ewy-37-jgw"/>
+                        <outletCollection property="multipleLabels" destination="AO8-26-Fx3" collectionClass="NSMutableArray" id="L9x-50-oz0"/>
+                        <outletCollection property="multipleLabels" destination="7i6-GD-m7D" collectionClass="NSMutableArray" id="BQ5-Fr-fn2"/>
+                        <outletCollection property="multipleLabels" destination="yrX-x8-Lq8" collectionClass="NSMutableArray" id="Kxu-aC-2P0"/>
+                        <outletCollection property="multipleLabels" destination="0Oy-Gj-WjC" collectionClass="NSMutableArray" id="ZMH-jY-QRr"/>
+                        <outletCollection property="rangeLabels" destination="k1f-6X-m05" collectionClass="NSMutableArray" id="iOg-Qs-tdU"/>
+                        <outletCollection property="rangeLabels" destination="okZ-vo-o5P" collectionClass="NSMutableArray" id="1cu-jO-LOf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nm6-OL-95J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
