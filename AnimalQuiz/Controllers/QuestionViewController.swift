@@ -12,7 +12,12 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet var progressLabel: UIProgressView!
     @IBOutlet var questionLabel: UILabel!
-    @IBOutlet var rangedSlider: UISlider!
+    @IBOutlet var rangedSlider: UISlider! {
+        didSet {
+            let answerCount = Float(currentAnswers.count - 1)
+            rangedSlider.value = answerCount
+        }
+    }
     
     @IBOutlet var singleStack: UIStackView!
     @IBOutlet var multipleStack: UIStackView!
@@ -20,9 +25,8 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet var singleButtons: [UIButton]!
     @IBOutlet var multipleLabels: [UILabel]!
-    
     @IBOutlet var rangeLabels: [UILabel]!
-    
+    @IBOutlet var multipleSwitches: [UISwitch]!
     
     private let questions = Question.getQuestions()
     private var questionIndex = 0
@@ -36,7 +40,30 @@ class QuestionViewController: UIViewController {
         updateUI()
     }
     
+    @IBAction func singleButtonAnswerPressed(_ sender: UIButton) {
+        guard let currentIndex = singleButtons.firstIndex(of: sender) else { return }
+        answersChosen.append(currentAnswers[currentIndex])
+        nextQuestion()
+    }
+    
+    @IBAction func multipleButtonAnswerPressed() {
+        for (multipleSwitch, answer) in zip(multipleSwitches, currentAnswers) {
+            if multipleSwitch.isOn {
+                answersChosen.append(answer)
+            }
+        }
+        nextQuestion()
+    }
+    
+    @IBAction func rangedButtonAnswerPressed() {
+        let index = Int(rangedSlider.value)
+        answersChosen.append(currentAnswers[index])
+        nextQuestion()
+    }
+    
 }
+
+//MARK: - Private
 
 extension QuestionViewController {
     private func updateUI() {
@@ -51,14 +78,17 @@ extension QuestionViewController {
         questionLabel.text = currentQuestion.text
         
         // calculate and set progress
-        let totalProgres = Float(questionIndex + 1) / Float (questions.count)
+        let totalProgres = Float(questionIndex) / Float (questions.count)
         progressLabel.setProgress(totalProgres, animated: true)
         
         //set current title
         title = "Вопрос №\(questionIndex + 1) из \(questions.count)"
+        
+        //Show current stackView
+        showCurrentStackView(for: currentQuestion.type)
     }
     
-    //Show current stackView
+    
     private func showCurrentStackView(for type: ResponseType) {
         switch type {
         case .single:
@@ -69,13 +99,17 @@ extension QuestionViewController {
             showRangedStackView(with: currentAnswers)
         }
     }
+    
+    
     private func showSingleStackView(with answers: [Answer]) {
-        singleStack.isHidden = true
+        singleStack.isHidden = false
         
         for (button, answer) in zip(singleButtons, answers){
             button.setTitle(answer.text, for: .normal)
         }
     }
+    
+    
     private func showMultipleStackView(with answers: [Answer]) {
         multipleStack.isHidden = false
         
@@ -88,5 +122,14 @@ extension QuestionViewController {
         
         rangeLabels.first?.text = answers.first?.text
         rangeLabels.last?.text = answers.last?.text
+    }
+    private func nextQuestion() {
+        questionIndex += 1
+        
+        if questionIndex < questions.count {
+            updateUI()
+            return
+        }
+        performSegue(withIdentifier: "showResult", sender: nil)
     }
 }

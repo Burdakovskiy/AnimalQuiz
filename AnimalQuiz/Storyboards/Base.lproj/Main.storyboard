@@ -28,7 +28,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhi-Qz-qYE">
                                         <rect key="frame" x="42.5" y="56" width="120" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="120" id="FLK-D0-Ib3"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="FLK-D0-Ib3"/>
                                             <constraint firstAttribute="height" constant="50" id="MT0-w3-tNH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
@@ -70,6 +70,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Button">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="singleButtonAnswerPressed:" destination="ZH7-vr-Rzl" eventType="touchUpInside" id="5jZ-Cc-udC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GC-BO-Pwg">
                                         <rect key="frame" x="0.0" y="79.5" width="382" height="61.5"/>
@@ -77,6 +80,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Button">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="singleButtonAnswerPressed:" destination="ZH7-vr-Rzl" eventType="touchUpInside" id="JTU-oZ-ZSR"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYq-ty-D2d">
                                         <rect key="frame" x="0.0" y="159" width="382" height="61.5"/>
@@ -84,6 +90,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Button">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="singleButtonAnswerPressed:" destination="ZH7-vr-Rzl" eventType="touchUpInside" id="F7d-QW-hVC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaf-aW-a54">
                                         <rect key="frame" x="0.0" y="238.5" width="382" height="61.5"/>
@@ -91,6 +100,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Button">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="singleButtonAnswerPressed:" destination="ZH7-vr-Rzl" eventType="touchUpInside" id="nT6-rI-wxa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -165,6 +177,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Ответить">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="20"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="multipleButtonAnswerPressed" destination="ZH7-vr-Rzl" eventType="touchUpInside" id="5xT-1a-uJq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -198,7 +213,7 @@
                                             <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="vf2-YT-hyB" kind="show" id="Ovh-Oi-wVB"/>
+                                            <action selector="rangedButtonAnswerPressed" destination="ZH7-vr-Rzl" eventType="touchUpInside" id="ruz-Di-Gqe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -251,6 +266,11 @@
                         <outletCollection property="multipleLabels" destination="0Oy-Gj-WjC" collectionClass="NSMutableArray" id="ZMH-jY-QRr"/>
                         <outletCollection property="rangeLabels" destination="k1f-6X-m05" collectionClass="NSMutableArray" id="iOg-Qs-tdU"/>
                         <outletCollection property="rangeLabels" destination="okZ-vo-o5P" collectionClass="NSMutableArray" id="1cu-jO-LOf"/>
+                        <outletCollection property="multipleSwitches" destination="eh9-1Z-JPs" collectionClass="NSMutableArray" id="3Y4-vN-GEC"/>
+                        <outletCollection property="multipleSwitches" destination="XOp-GG-wY6" collectionClass="NSMutableArray" id="emv-Fk-DMK"/>
+                        <outletCollection property="multipleSwitches" destination="bfK-08-Y4Z" collectionClass="NSMutableArray" id="4Ka-f1-e9t"/>
+                        <outletCollection property="multipleSwitches" destination="S95-16-asj" collectionClass="NSMutableArray" id="3ca-Fx-znk"/>
+                        <segue destination="vf2-YT-hyB" kind="show" identifier="showResult" id="ge2-dE-woN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nm6-OL-95J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -292,10 +312,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Результаты" id="z2i-6b-DdN">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="se4-zf-q8U"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="se4-zf-q8U">
+                            <connections>
+                                <segue destination="FNw-5O-8pC" kind="unwind" unwindAction="unwindFor:" id="4La-eW-wEa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GBT-QO-tK9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="FNw-5O-8pC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2644.9275362318845" y="67.633928571428569"/>
         </scene>
