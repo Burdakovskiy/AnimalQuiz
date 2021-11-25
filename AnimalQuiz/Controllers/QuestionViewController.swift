@@ -26,6 +26,10 @@ class QuestionViewController: UIViewController {
     
     private let questions = Question.getQuestions()
     private var questionIndex = 0
+    private var answersChosen: [Answer] = []
+    private var currentAnswers: [Answer] {
+        questions[questionIndex].answers
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +62,11 @@ extension QuestionViewController {
     private func showCurrentStackView(for type: ResponseType) {
         switch type {
         case .single:
-            <#code#>
+            showSingleStackView(with: currentAnswers)
         case .multiple:
-            <#code#>
+            showMultipleStackView(with: currentAnswers)
         case .range:
-            <#code#>
+            showRangedStackView(with: currentAnswers)
         }
     }
     private func showSingleStackView(with answers: [Answer]) {
@@ -71,5 +75,18 @@ extension QuestionViewController {
         for (button, answer) in zip(singleButtons, answers){
             button.setTitle(answer.text, for: .normal)
         }
+    }
+    private func showMultipleStackView(with answers: [Answer]) {
+        multipleStack.isHidden = false
+        
+        for (labels, answer) in zip(multipleLabels, answers){
+            labels.text = answer.text
+        }
+    }
+    private func showRangedStackView(with answers: [Answer]) {
+        rangeStack.isHidden = false
+        
+        rangeLabels.first?.text = answers.first?.text
+        rangeLabels.last?.text = answers.last?.text
     }
 }
