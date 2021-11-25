@@ -23,7 +23,7 @@ class ResultViewController: UIViewController {
     }
 
 }
-
+//MARK: - Private
 extension ResultViewController {
     private func updateResults() {
         
@@ -35,7 +35,7 @@ extension ResultViewController {
     }
     
     private func updateUI(with animal: AnimalType) {
-        animalTypeLabel.text = "Вы - \(animal.rawValue ?? "🐶")!"
-        descriptionLabel.text = animal.deskription ?? ""
+        animalTypeLabel.text = "Вы - \(animal.rawValue)!"
+        descriptionLabel.text = animal.description
     }
 }
