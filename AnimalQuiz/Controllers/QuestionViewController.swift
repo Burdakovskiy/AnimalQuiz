@@ -8,14 +8,19 @@
 import UIKit
 
 class QuestionViewController: UIViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let resultView = segue.destination as! ResultViewController
+        resultView.answers  = answersChosen
+    }
 
     
     @IBOutlet var progressLabel: UIProgressView!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var rangedSlider: UISlider! {
         didSet {
-            let answerCount = Float(currentAnswers.count - 1)
-            rangedSlider.value = answerCount
+            let answerCount = Float(questions[questionIndex].answers.count - 1)
+            rangedSlider.maximumValue = answerCount
         }
     }
     
